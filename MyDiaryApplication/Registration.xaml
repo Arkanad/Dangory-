@@ -1,0 +1,77 @@
+﻿<Window x:Name="RegistrationWindow1" x:Class="MyDiaryApplication.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyDiaryApplication"
+        mc:Ignorable="d"
+        Title="Registration" Height="{StaticResource AccountWindowHeight}" Width="{StaticResource AccountWindowWidth}" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="{DynamicResource AccountWindowBackground}" Height="NaN" Margin="0,-10,0,0">
+        <Button x:Name="ExitButton" Margin="475,0,0,445" BorderThickness="0,0,0,0" Height="45" Width="45" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom"  >
+            <Button.Background>
+                <ImageBrush ImageSource="/Data/LoginWindow/Exit.png"/>
+            </Button.Background>
+        </Button>
+        <Border x:Name="BorderPanel" HorizontalAlignment="Center" Height="340" Canvas.Left="70" Canvas.Top="125" VerticalAlignment="Center" Width="380" CornerRadius="25,25,25,25" Background="#33000000" >
+
+            <Canvas x:Name="InnerPanelBoxes" Height="NaN">
+                <Border 
+CornerRadius ="15"                        x:Name="PasswordBoxBorder" Height="35" Width="338" Canvas.Left="20" Canvas.Top="155" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#59FFFFFF" BorderThickness="1,1,1,1"  
+                            >
+                    <Grid>
+                        <TextBlock x:Name="HintPasswordBox" Margin="10,0,0,0" MinWidth="50" FontSize="15" Text="Password" 
+                                   Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False" Height="NaN" VerticalAlignment="Center"/>
+                        <PasswordBox  MinWidth="50" x:Name="PasswordBox" Background="Transparent" BorderThickness="0,0,0,0" FontSize ="15" Width="NaN" Height="NaN" Margin="10,8,10,8"  PasswordChanged="passwordBox_PasswordChanged" TouchEnter="PasswordBox_TouchEnter"/>
+                    </Grid>
+                </Border>
+
+                <Border 
+                    CornerRadius ="15"                        x:Name="RepeatPasswordBoxBorder" Height="35" Width="338" Canvas.Left="20" Canvas.Top="210" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#59FFFFFF" BorderThickness="1,1,1,1"  
+                >
+                    <Grid>
+                        <TextBlock x:Name="HintRepeatPasswordBox" Margin="10,0,0,0" MinWidth="50" FontSize="15" Text="Repeat password" 
+                                   Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False" Height="NaN" VerticalAlignment="Center"/>
+                        <PasswordBox MinWidth="50" Name="RepeatPasswordBox" Background="Transparent" BorderThickness="0,0,0,0"  FontSize ="15" Height="NaN" Margin="10,10,10,8" Width="NaN"  PasswordChanged="RepeatPasswordBox_PasswordChanged" TouchEnter="RepeatPasswordBox_TouchEnter"/>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="BorderLogin"   
+CornerRadius="15"                        Height="35" Width="338" Canvas.Left="20" Canvas.Top="100" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#59FFFFFF" BorderThickness="1,1,1,1" >
+
+                    <!-- overlay with hint text -->
+                    <Grid>
+                        <TextBlock x:Name="HintLoginBox" Margin="10,0,0,0" MinWidth="50" FontSize="15" Text="Login" 
+                               Foreground="LightSteelBlue" Visibility="{Binding ElementName=txtSearchBox, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False" Height="NaN" VerticalAlignment="Center"/>
+                        <TextBox MinWidth="50" x:Name="LoginBox" Background="#00000000" 
+                                 
+                                 
+                                 BorderThickness="0,0,0,0" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Width="318" TextChanged="loginBox_TextChanged" TouchEnter="LoginBox_TouchEnter" />
+                    </Grid>
+                    <!-- enter term here -->
+
+
+                </Border>
+
+                <Label Canvas.Left="20" Canvas.Top="59" HorizontalAlignment="Left" VerticalAlignment="Center" Width="305" Height="36" Content="Create account to start working with your diary" FontWeight="Bold" Foreground="#FF373434" FontSize="13"/>
+
+                <Label x:Name="SignInLabel" Height="45" Width="338" Canvas.Left="20" Canvas.Top="19" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Create account!" Foreground="White" FontWeight="Bold" FontFamily="Sitka Small Semibold" FontSize="30"/>
+
+
+                <Button x:Name="RegisterButton" Background="#FF00E2FC" Content="Register" FontSize="18" FontFamily="Yu Gothic UI Semibold" Focusable="False" FontWeight="Regular" Height="40" Width="184" BorderThickness="0,0,0,0" Canvas.Left="98" Canvas.Top="260" HorizontalAlignment="Left" VerticalAlignment="Center" Click="RegisterButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Canvas>
+        </Border>
+        <Button x:Name="BackToLoginButton" Content="" BorderThickness="0,0,0,0" Click="BackToLoginButton_Click" Margin="10,10,465,445" Height="NaN">
+            <Button.Background>
+                <ImageBrush ImageSource="/Data/AccountWindow/Back.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="MessageLabel" Content="&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,385,0,0" VerticalAlignment="Top" Height="35" Width="220" FontSize="18" FontFamily="Times New Roman" Foreground="#FFFF0505"/>
+    </Grid>
+</Window>

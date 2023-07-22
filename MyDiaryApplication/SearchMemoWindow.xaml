@@ -1,0 +1,58 @@
+﻿<Window x:Class="MyDiaryApplication.SearchMemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyDiaryApplication"
+        mc:Ignorable="d"
+        Title="SearchMemoWindow" Height="720" Width="1200">
+    <Grid>
+
+        <GroupBox Width="355" HorizontalAlignment="Left" Height="NaN" Margin="40,40,0,40" Header="Search">
+            <StackPanel Orientation=" Vertical" Margin="0,0,18,0">
+                <StackPanel Orientation="Horizontal" Height="34" VerticalAlignment="Top" Margin="0,0,10,25" >
+                    <Label Width="50" Height="32" VerticalAlignment="Center" Content="Date:"/>
+                    <TextBox Width="79" Height="32" VerticalAlignment="Center" Text="dsa"/>
+                    <Button Width="85" Height="32" VerticalAlignment="Center" Content="Search"/>
+
+                </StackPanel>
+                <ComboBox x:Name="YearSelection" Height="25" Margin="0,0,0,25" Loaded="YearSelection_Loaded" >
+                </ComboBox>
+                <ComboBox x:Name="MonthSelection" Height="25" Loaded="MonthSelection_Loaded" SelectionChanged="MonthSelection_SelectionChanged" >
+                </ComboBox>
+                <ListBox x:Name="MyDiaryFilesListBox" Height="448" Width="319" SelectionChanged="MyDiaryFilesListBox_SelectionChanged"  />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Margin="425,40,40,40" Width="NaN" Height="NaN" Header="MemoDetail&#xD;&#xA;" RenderTransformOrigin="0.5,0.5">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.053"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.399"/>
+                </TransformGroup>
+
+            </GroupBox.RenderTransform>
+            <RichTextBox Name="DemoFileRichTextBox">
+                <FlowDocument>
+                    <Paragraph>
+                        <InlineUIContainer>
+
+                        </InlineUIContainer>
+                    </Paragraph>
+                </FlowDocument>
+
+            </RichTextBox>
+
+        </GroupBox>
+        <Label x:Name="MessageRTB" Content="Select file" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="625,247,0,247" Width="360" FontSize="60" Foreground="#FF7B7B7B" VerticalContentAlignment="Center">
+        </Label>
+        <Button x:Name="BackButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="40" BorderThickness="0,0,0,0" Margin="0,2,0,0" Click="BackButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Data/AccountWindow/Back.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="LoadToWorkButton" Content="Click here!" HorizontalAlignment="Left" Margin="891,30,0,0" VerticalAlignment="Top" Height="32" Width="270" BorderThickness="0,0,0,0" Background="#99BAB4B4" Click="LoadToWorkButton_Click"/>
+        <Label Content="Load to workspace to edit that dangonote :)" HorizontalAlignment="Left" Margin="905,4,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
